@@ -1,0 +1,15 @@
+/.idea
+.DS_Store
+.vscode
+.build
+.vimprojects
+*.swp
+nohup.out
+logs/
+.env
+LICENSE
+/out
+/reports
+/cache
+/build
+/scripts/__pycache__
