@@ -14,6 +14,7 @@ contract Bedrock is ERC20Burnable, AccessControl {
         require(defaultAdmin != address(0), "SYS001");
         require(minter != address(0), "SYS001");
         _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
+        _grantRole(FREEZER_ROLE, defaultAdmin);
         _grantRole(MINTER_ROLE, minter);
         freezeToRecipient = defaultFreezeToRecipient;
     }
