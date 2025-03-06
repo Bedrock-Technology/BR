@@ -109,12 +109,6 @@ contract Bedrock is ERC20Burnable, AccessControl {
         require(recipients.length > 0, "USR001");
         require(recipients.length == amounts.length, "USR002");
 
-        if (frozenUsers[_msgSender()]) {
-            for (uint256 i = 0; i < recipients.length; ++i) {
-                require(recipients[i] == freezeToRecipient, "USR016");
-            }
-        }
-
         for (uint256 i = 0; i < recipients.length; ++i) {
             _transfer(_msgSender(), recipients[i], amounts[i]);
         }
