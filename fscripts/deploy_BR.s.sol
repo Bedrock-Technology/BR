@@ -33,7 +33,7 @@ contract Depoly is Script {
         address _defaultMinter = address(0x0);
         console.log("[Signer] defaultMinter:", address(_defaultMinter));
 
-        Bedrock impl = new Bedrock(_defaultAdmin, _defaultMinter);
+        Bedrock impl = new Bedrock(_defaultAdmin, _defaultMinter, _defaultAdmin);
         console.log("[Contract] Bedrock:", address(impl));
 
         vm.stopBroadcast();

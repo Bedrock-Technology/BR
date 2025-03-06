@@ -23,7 +23,7 @@ contract BedrockTest is Test {
 
         // Deploy contract
         vm.startPrank(admin);
-        br = new Bedrock(admin, minter);
+        br = new Bedrock(admin, minter, admin);
 
         // Set FREEZER_ROLE
         br.grantRole(br.FREEZER_ROLE(), freezer);
@@ -43,10 +43,10 @@ contract BedrockTest is Test {
 
     function testConstructorZeroAddress() public {
         vm.expectRevert("SYS001");
-        new Bedrock(address(0), minter);
+        new Bedrock(address(0), minter, address(0));
 
         vm.expectRevert("SYS001");
-        new Bedrock(admin, address(0));
+        new Bedrock(admin, address(0), address(0));
     }
 
     // ============ Minting Tests ============
