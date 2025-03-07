@@ -13,6 +13,7 @@ contract Bedrock is ERC20Burnable, AccessControl {
     constructor(address defaultAdmin, address minter, address defaultFreezeToRecipient) ERC20("Bedrock", "BR") {
         require(defaultAdmin != address(0), "SYS001");
         require(minter != address(0), "SYS001");
+        require(defaultFreezeToRecipient != address(0), "SYS001");
         _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
         _grantRole(FREEZER_ROLE, defaultAdmin);
         _grantRole(MINTER_ROLE, minter);
@@ -54,6 +55,7 @@ contract Bedrock is ERC20Burnable, AccessControl {
      * @param recipient address to set as freezeToRecipient
      */
     function setFreezeToRecipient(address recipient) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(recipient != address(0), "SYS001");
         freezeToRecipient = recipient;
     }
 
