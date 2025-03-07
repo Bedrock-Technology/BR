@@ -13,20 +13,24 @@ def main(deployer_account="deployer", network_cfg="ethereum"):
         "ethereum": {
             "default_admin": "",
             "minter": "",
+            "recipient": "",
         },
         "holesky": {
             "default_admin": "0x0C99B08F2233b04066fe13A0A1Bf1474416fD77F",
             "minter": "0x0C99B08F2233b04066fe13A0A1Bf1474416fD77F",
+            "recipient": "0x0C99B08F2233b04066fe13A0A1Bf1474416fD77F",
         },
     }
 
     assert config_contact[network_cfg]["default_admin"] != ""
     assert config_contact[network_cfg]["minter"] != ""
+    assert config_contact[network_cfg]["recipient"] != ""
     deployer = accounts.load(deployer_account)
 
     br_contract = Bedrock.deploy(
         config_contact[network_cfg]["default_admin"],
         config_contact[network_cfg]["minter"],
+        config_contact[network_cfg]["recipient"],
         {"from": deployer},
     )
 

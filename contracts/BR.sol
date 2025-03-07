@@ -10,11 +10,14 @@ contract Bedrock is ERC20Burnable, AccessControl {
     address public freezeToRecipient;
     mapping(address => bool) public frozenUsers;
 
-    constructor(address defaultAdmin, address minter) ERC20("Bedrock", "BR") {
+    constructor(address defaultAdmin, address minter, address defaultFreezeToRecipient) ERC20("Bedrock", "BR") {
         require(defaultAdmin != address(0), "SYS001");
         require(minter != address(0), "SYS001");
+        require(defaultFreezeToRecipient != address(0), "SYS001");
         _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
+        _grantRole(FREEZER_ROLE, defaultAdmin);
         _grantRole(MINTER_ROLE, minter);
+        freezeToRecipient = defaultFreezeToRecipient;
     }
 
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
@@ -52,6 +55,7 @@ contract Bedrock is ERC20Burnable, AccessControl {
      * @param recipient address to set as freezeToRecipient
      */
     function setFreezeToRecipient(address recipient) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(recipient != address(0), "SYS001");
         freezeToRecipient = recipient;
     }
 
@@ -68,6 +72,8 @@ contract Bedrock is ERC20Burnable, AccessControl {
      * @param users Array of users to be frozen.
      */
     function freezeUsers(address[] memory users) public onlyRole(FREEZER_ROLE) {
+        require(users.length > 0, "SYS006");
+
         for (uint256 i = 0; i < users.length; ++i) {
             frozenUsers[users[i]] = true;
         }
@@ -79,6 +85,8 @@ contract Bedrock is ERC20Burnable, AccessControl {
      * @param users Array of users to be unfrozen.
      */
     function unfreezeUsers(address[] memory users) public onlyRole(FREEZER_ROLE) {
+        require(users.length > 0, "SYS006");
+
         for (uint256 i = 0; i < users.length; ++i) {
             frozenUsers[users[i]] = false;
         }
