@@ -51,3 +51,6 @@ After all submodules are updated as required, you can build contracts with this 
 1. USR024: SYS_SIGNER_NOT_SET
 1. USR025: CALL_FAILED
 1. USR026: NOT_EOA
+
+### 3. Deployments
+1. Binance Smart Chain: [0xff7d6a96ae471bbcd7713af9cb1feeb16cf56b41](https://bscscan.com/address/0xff7d6a96ae471bbcd7713af9cb1feeb16cf56b41)
