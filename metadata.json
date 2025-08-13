@@ -1,0 +1,15 @@
+{
+    "name": "Bedrock",
+    "symbol": "BR",
+    "description": "Bedrock Token (BR)",
+    "image": "https://raw.githubusercontent.com/Bedrock-Technology/bedrock-static/main/BR_Token.svg",
+    "attributes": [],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/Bedrock-Technology/bedrock-static/main/BR_Token.svg",
+                "type": "image/svg+xml"
+            }
+        ]
+    }
+}
