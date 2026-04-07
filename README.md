@@ -66,3 +66,7 @@ After all submodules are updated as required, you can build contracts with this 
 | Bera | BR Bera bridge admin | `0x77386EAaA8F969D0bBCEc97230A536bDC4Fc7AAE` | [Safe](https://app.safe.global/settings/setup?safe=berachain:0x77386EAaA8F969D0bBCEc97230A536bDC4Fc7AAE) |
 | Base | BR Base bridge admin | `0xAeE017052DF6Ac002647229D58B786E380B9721A` | [Safe](https://app.safe.global/transactions/queue?safe=base:0xAeE017052DF6Ac002647229D58B786E380B9721A) |
 | BNB | BR BNB bridge admin | `0x8e1AB163C7cBD1B7A4131631D514fa7d68471eda` | [Safe](https://app.safe.global/home?safe=bnb:0x8e1AB163C7cBD1B7A4131631D514fa7d68471eda) |
+
+### 6. Token Directory
+
+https://docs.chain.link/ccip/directory/mainnet/token/BR
